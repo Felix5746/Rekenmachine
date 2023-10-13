@@ -26,7 +26,6 @@ namespace Rekenmachine_tests.Controllers
 
             // Assert
             Assert.That(resultaat.ViewData["Resultaat"], Is.EqualTo(verwachtResultaat));
-
         }
 
         [Test]
@@ -44,6 +43,19 @@ namespace Rekenmachine_tests.Controllers
             Assert.That(resultaat.ViewData["OmgekeerdeNaam"], Is.EqualTo("pocoboR"));
         }
 
+        [Test]
+        public void TestSnelheid()
+        {
+            // Arrange
+            var controller = new HomeController();
+            int snelheid = 51;
+
+            // Act
+            var resultaat = controller.Snelheid(snelheid) as ViewResult;
+
+            // Assert
+            Assert.That(resultaat, Is.Not.Null);
+            Assert.That(resultaat.ViewData["Snelheid"], Is.EqualTo("Te snel!"));
+        }
     }
-    
 }
