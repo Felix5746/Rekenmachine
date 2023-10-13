@@ -26,12 +26,15 @@ namespace Rekenmachine.Controllers
                 case "optellen":
                     resultaat = num1 + num2;
                     break;
+
                 case "aftrekken":
                     resultaat = num1 - num2;
                     break;
+
                 case "vermenigvuldigen":
                     resultaat = num1 * num2;
                     break;
+
                 case "delen":
                     if (num2 != 0)
                         resultaat = num1 / num2;
@@ -43,8 +46,28 @@ namespace Rekenmachine.Controllers
             ViewData["Resultaat"] = resultaat;
 
             return View();
-
         }
+
+        public IActionResult Snelheid()
+        {
+            return View();
+        }
+
+        [HttpPost("Snelheid")]
+        public IActionResult Snelheid(int snelheid)
+        {
+            if (snelheid > 50)
+            {
+                ViewData["Snelheid"] = "Te snel!";
+            }
+            else
+            {
+                ViewData["Snelheid"] = "Zeer goed!";
+            }
+
+            return View();
+        }
+
         public IActionResult NaamOmgekeerd()
         {
             return View();
@@ -59,8 +82,5 @@ namespace Rekenmachine.Controllers
             ViewData["OmgekeerdeNaam"] = omgekeerdeNaam;
             return View();
         }
-
-
     }
-
 }

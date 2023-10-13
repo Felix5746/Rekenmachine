@@ -1,0 +1,12 @@
+﻿<form method="post" asp-action="Snelheid">
+    <div><input type="number" name="snelheid" placeholder="Num1" required /></div><br />
+    
+    
+    <div><input type="submit" value="Bereken" /></div><br />
+</form>
+@if (ViewData["Snelheid"] != null)
+{
+    
+        <div>@ViewData["Snelheid"]</div>
+   
+}
